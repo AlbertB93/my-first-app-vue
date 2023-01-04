@@ -13,8 +13,10 @@
           v-bind:key="person.id" 
           :person="person"
           @personPaidFee = 'personPaid'/>
-
-                          <p>Suma: </p>
+        
+          <p>
+            Suma: 
+          </p><p id="wynik" onload="countAmount"></p> <button @click="countAmount">Wyświetl sume</button>
     </div>
 
         <div class="person--container">
@@ -64,13 +66,22 @@ export default {
       console.log(amount)
       /*      this.persons[index].amount += amount  */
     },
-
-    
-     personPaid(id) {
+    personPaid(id) {
       const index = this.persons.findIndex(el => el.id === id)
       console.log(index)
 /*       this.persons[index].paid == 50 */
       this.persons[index].paidAmount = true
+    },
+    countAmount(){
+
+      let suma = 0;
+      
+      for(let i=0;i<this.persons.length;i++){
+      suma+=this.persons[i].amount;
+      }
+      document.getElementById('wynik').innerHTML = suma;
+      
+      return suma;
     },
   }
 }
