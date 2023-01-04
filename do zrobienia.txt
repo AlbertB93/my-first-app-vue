@@ -1,0 +1,2 @@
+- automatycznie nadawany index podczas dodawania osoby
+- sumowanie całej kwoty składek.
